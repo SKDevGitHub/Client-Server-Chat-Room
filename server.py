@@ -62,11 +62,11 @@ def messageToAll(message, sender = None):
 #DETERMINES WHAT THE RECEIVER OF THE PRIVATE MESSAGE IS AS WELL AS THE MESSAGE ITSELF
 def decoder(message2):
     try:
-        message = message2.split(":")
-        message = message[1].split(' ')
-        target = message[1]
+        message = message2.split(": ")
+        message1 = message[1].split('@')
+        target = message1[1]
         pMessage = message[2]
-        receiver = target[1:]
+        receiver = target
         return receiver, pMessage
     except Exception as e:
         print(f"Decoder Error: {e}\n")
@@ -97,7 +97,7 @@ def startServer():
     
     while True:
         clientSocket, clientAddress = serverSocket.accept()
-        print(f"Connection from {clientAddress} established.")
+        print(f"\nConnection from {clientAddress} established.")
         
         clientSocket.send("What is you Username?: ".encode("utf-8"))
         username = clientSocket.recv(1024).decode("utf-8")
