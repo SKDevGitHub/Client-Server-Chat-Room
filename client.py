@@ -16,7 +16,7 @@ def receive():
                 clientSocket.send(username.encode("utf-8"))
                 clientSocket.send(f"New User {username} has entered the chat!".encode("utf-8"))
                 print(f"Welcome to the chat {username}!\n")
-                print("Type /quit to leave the chat room.")
+                print("Type /quit to leave the chat room.\n")
             else:
                 print(message)
         except Exception as e:
